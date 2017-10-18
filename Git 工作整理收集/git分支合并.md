@@ -13,6 +13,11 @@ git push
 ```
 git checkout develop
 ```
+>抓取合并分支代码：
+```text
+git pull
+```
+
 >合并远程分支
 ```
 git status
