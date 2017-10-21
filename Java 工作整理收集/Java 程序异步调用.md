@@ -1,6 +1,9 @@
 Java 程序异步调用
 =================
->异步调用实现方法：
+
+异步调用实现方法 1
+-------------------
+>示例代码：
 ```java
 /**
  * 异步调用 - 自动关注社群
@@ -34,7 +37,6 @@ public void autoFollowerCircleCallback(String circleId, String userId) {
 
 >单元测试方法：
 ```java
-
 import cn.gaiay.business.groupon.service.GrouponShareService;
 import cn.gaiay.framework.model.ResultModel;
 import com.alibaba.fastjson.JSON;
@@ -78,4 +80,48 @@ public class GrouponShareServiceImplTest {
 ```text
     Thread.sleep(500);
     String aa = "斯蒂芬";
+```
+
+
+异步调用实现方法 2
+-------------------
+>示例代码：
+```java
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
+/**
+ * 社群系统消息透传通知
+ */
+@Component
+public class CircleNotice {
+
+	Logger logger = Logger.getLogger(CircleNotice.class);
+	ExecutorService threads = Executors.newCachedThreadPool();
+
+	public int join(final String userId, final List<String> adminIds, final int tid) {
+		threads.execute(new Runnable() {
+			public void run() {
+				for(String adminId : adminIds){
+					GetClientUtil.getNoticeClient().groupSystemMsg(adminId);
+				}
+				AccountProfile account = GetClientUtil.getAccountClient().getUserLocation(userId);
+				logger.debug("新人入群："+account.toString());
+				logger.debug("开始发送新人入群消息。。。");
+
+				//如有有管理员，则用管理员发，如果没有管理员则用加入者发送
+				String sendUserId = adminIds.size() > 1 ? adminIds.get(1) : userId;
+
+				int code = GetClientUtil.getCardMsgClient().sendNewMemberJoin(sendUserId, tid, getJoinChatMsgContent(account.getName()), account.getLogo(), "点击查看名片详情", userId, "");
+				logger.debug("新人入群消息发送完成,code="+code);
+			}
+		});
+		return 0;
+	}
+}
 ```
