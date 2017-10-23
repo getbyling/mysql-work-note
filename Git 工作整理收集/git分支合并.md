@@ -1,27 +1,32 @@
 git 分支合并
 ----------------
 >抓取当前分支文件：
-```
+```git
 git status
 git pull
 ```
 >提交当前分支文件：
-```
+```git
 git push
 ```
 >切换合并分支：
-```
+```git
 git checkout develop
 ```
 >抓取合并分支代码：
-```text
+```git
 git pull
 ```
 
->合并远程分支
-```
+>合并远程分支：
+```git
 git status
 git merge origin/hotfix/sp31.0.2
+```
+
+>提交合并分支代码：
+```git
+git push
 ```
 
 >示例操作：
@@ -82,5 +87,19 @@ To 192.168.0.236:server/extends.git
 l@l-PC MINGW64 /d/GaiayCode/origincode/extends (develop)
 $ git pull
 Already up-to-date.
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/ma (develop)
+$ git push
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 747 bytes | 0 bytes/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote:
+remote: View merge request for develop:
+remote:   http://192.168.0.236/server/ma/merge_requests/14
+remote:
+To 192.168.0.236:server/ma.git
+   c6fd0b3..d9a3b21  develop -> develop
 
 ```
