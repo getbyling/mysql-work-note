@@ -33,7 +33,7 @@ git branch
   test  
 ```
 
->线面是把分支推到远程分支 
+>下面是把分支推到远程分支 
 ```git
 git push origin test  
 ```
