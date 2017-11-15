@@ -1,8 +1,7 @@
 git 分支操作
 ============
 
-1 查看远程分支
---------------
+#### 1 查看远程分支
 ```git
 git branch -a  
 * br-2.1.2.2  
@@ -14,8 +13,7 @@ git branch -a
   remotes/origin/master 
 ``` 
 
-2 查看本地分支
---------------
+#### 2 查看本地分支
 ```git
 shuohailhl@SHUOHAILHL-PC /f/ggg/jingwei (br-2.1.2.2)  
 git branch  
@@ -23,8 +21,7 @@ git branch
   master
 ```  
 
-3 创建分支
-----------
+#### 3 创建分支
 ```git
 shuohailhl@SHUOHAILHL-PC /f/ggg/jingwei (br-2.1.2.2)  
 git branch test  
@@ -40,8 +37,7 @@ git branch
 git push origin test  
 ```
 
-4 切换分支
-----------
+#### 4 切换分支
 ```git
 shuohailhl@SHUOHAILHL-PC /f/ggg/jingwei (br-2.1.2.2)  
 git branch  
@@ -62,8 +58,7 @@ git branch
 * test  
 ```
 
-5 删除本地分支
---------------
+#### 5 删除本地分支
 ```git
 l@l-PC MINGW64 /d/GaiayCode/origincode/extends (develop)
 $ git branch -d hotfix/sp32.0.1
@@ -118,18 +113,17 @@ git branch -a
   remotes/origin/master  
 ```
 
-6 删除远程版本
---------------
+#### 6 删除远程版本
 ```git
 git push origin :br-1.0.0  
 ```
 
-7 删除远程分支
---------------
+#### 7 删除远程分支
 ```git
 git branch -r -d origin/branch-name  
 git push origin :branch-name  
 ```
+
 参考资料
 --------
 - [git 查看远程分支、本地分支、创建分支、把分支推到远程repository、删除本地分支](http://blog.csdn.net/arkblue/article/details/9568249/)
