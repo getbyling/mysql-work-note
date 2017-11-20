@@ -40,11 +40,6 @@ git stash clear
 ```git
 git add .
 ```
-
->添加本地文件：
-```git
-git add .
-```
 >添加的本地文件提到仓库：
 ```git
 git commit -m 'merge code'
