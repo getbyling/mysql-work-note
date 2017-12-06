@@ -3,6 +3,8 @@ Java List 分页
 >List 分页，初步版本
 
 ```java
+package cn.gaiay.business.groupon.util;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class ListPageUtil<E> {
 
     public List<E> calcResult() {
         int pageCount = 0;
-        int m = this.totalCount % this.pageSize;
+        int m = this.totalCount / this.pageSize;
         if (m > 0) {
             pageCount = this.totalCount / this.pageSize + 1;
         } else {
@@ -63,11 +65,13 @@ public class ListPageUtil<E> {
         }
 
         List<E> result = new ArrayList<>();
-        if (m == 0) {
-            result = this.list.subList((this.pageNum - 1) * this.pageSize, this.pageSize * (this.pageNum));
+        if (pageCount == 0) {
+            if (this.pageNum <= 1) {
+                result = this.list.subList(0, this.totalCount);
+            }
         } else {
-            if (this.pageNum == pageCount) {
-                result = this.list.subList((this.pageNum - 1) * this.pageSize, this.totalCount);
+            if (this.pageNum >= pageCount) {
+                result = this.list.subList((pageCount - 1) * this.pageSize, this.totalCount);
             } else {
                 result = this.list.subList((this.pageNum - 1) * this.pageSize, this.pageSize * (this.pageNum));
             }
@@ -75,5 +79,19 @@ public class ListPageUtil<E> {
 
         return result;
     }
+
+    public static void main(String[] args) {
+
+        List<String> list = new ArrayList<>();
+        for (int i = 1; i < 6; i++) {
+            list.add(i + "");
+        }
+
+        int page = 3;
+        int pageSize = 15;
+        ListPageUtil<String> listPage = new ListPageUtil(list, page, pageSize);
+        System.out.println(listPage.calcResult());
+    }
 }
+
 ```
