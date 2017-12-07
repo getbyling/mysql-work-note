@@ -28,6 +28,12 @@ git merge origin/hotfix/sp31.0.2
 ```git
 git push
 ```
+>查看尚未暂存的文件更新了哪些部分，不加参数直接输入
+```git
+ git diff
+```
+>此命令比较的是工作目录(Working tree)和暂存区域快照(index)之间的差异
+也就是修改之后还没有暂存起来的变化内容。
 
 >示例操作 1：
 ```git
