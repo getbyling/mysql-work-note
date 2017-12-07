@@ -70,9 +70,9 @@ public class ListPageUtil<E> {
                 result = this.list.subList(0, this.totalCount);
             }
         } else {
-            if (this.pageNum >= pageCount) {
+            if (this.pageNum == pageCount) {
                 result = this.list.subList((pageCount - 1) * this.pageSize, this.totalCount);
-            } else {
+            } else if (this.pageNum < pageCount) {
                 result = this.list.subList((this.pageNum - 1) * this.pageSize, this.pageSize * (this.pageNum));
             }
         }
@@ -83,7 +83,7 @@ public class ListPageUtil<E> {
     public static void main(String[] args) {
 
         List<String> list = new ArrayList<>();
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i <= 20; i++) {
             list.add(i + "");
         }
 
