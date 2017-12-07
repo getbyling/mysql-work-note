@@ -70,6 +70,9 @@ public class ListPageUtil<E> {
                 result = this.list.subList(0, this.totalCount);
             }
         } else {
+            if (pageCount > 0 && this.pageNum < 0) {
+                this.pageNum = 1;
+            }
             if (this.pageNum == pageCount) {
                 result = this.list.subList((pageCount - 1) * this.pageSize, this.totalCount);
             } else if (this.pageNum < pageCount) {
@@ -87,7 +90,7 @@ public class ListPageUtil<E> {
             list.add(i + "");
         }
 
-        int page = 3;
+        int page = 10;
         int pageSize = 15;
         ListPageUtil<String> listPage = new ListPageUtil(list, page, pageSize);
         System.out.println(listPage.calcResult());
