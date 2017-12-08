@@ -59,9 +59,7 @@ public class ListPageUtil<E> {
         int pageCount = 0;
         int m = this.totalCount / this.pageSize;
         if (m > 0) {
-            pageCount = this.totalCount / this.pageSize + 1;
-        } else {
-            pageCount = this.totalCount / this.pageSize;
+            pageCount = m + 1;
         }
 
         List<E> result = new ArrayList<>();
