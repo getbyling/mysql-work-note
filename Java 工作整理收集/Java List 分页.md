@@ -68,7 +68,7 @@ public class ListPageUtil<E> {
                 result = this.list.subList(0, this.totalCount);
             }
         } else {
-            if (pageCount > 0 && this.pageNum < 0) {
+            if (pageCount > 0 && this.pageNum <= 0) {
                 this.pageNum = 1;
             }
             if (this.pageNum == pageCount) {
