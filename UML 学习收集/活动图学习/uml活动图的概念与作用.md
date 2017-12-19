@@ -3,6 +3,6 @@ uml活动图的概念与作用
 
 参考资料
 --------
-- [uml活动图的概念与作用](http://www.uml.org.cn/oobject/201409092.asp)
+- [UML 活动图的概念与作用](http://www.uml.org.cn/oobject/201409092.asp)
 
 
