@@ -1,4 +1,4 @@
-Mybatis collection 配置使用
+Mybatis collection 树型使用
 ===========================
 
 >Mybatis 配置内容：
@@ -297,5 +297,3 @@ public class LivePlateformTypeServiceImpl implements LivePlateformTypeService {
     }    
 }
 ```
-
-
