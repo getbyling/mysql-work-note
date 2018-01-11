@@ -1,7 +1,10 @@
 Java BeanUtils 使用
 ===================
+
 >可以很优雅的实现将父类字段的值copy到子类中
 
+org.springframework.beans.BeanUtils 方法的使用
+----------------------------------------------
 ```java
 import org.springframework.beans.BeanUtils;
 
@@ -59,6 +62,72 @@ class Male extends Person {
 
     public void setNecklace(String necklace) {
         this.necklace = necklace;
+    }
+}
+```
+
+org.apache.commons.beanutils.BeanUtils  方法的使用
+--------------------------------------------------
+>可复制对象值
+```java
+import org.apache.commons.beanutils.BeanUtils;
+import cn.gaiay.business.groupon.entity.member.MemberProductVO;
+
+public class GrouponMemberServiceImpl {
+    
+    public static void main(String[] args) {
+
+        MemberProductVO memberProduct = new MemberProductVO();
+        memberProduct.setProductPic("a");
+        try {
+            MemberProductVO temp = (MemberProductVO) BeanUtils.cloneBean(memberProduct);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+```
+>MemberProductVO 实体
+```java
+package cn.gaiay.business.groupon.entity.member;
+
+import cn.gaiay.business.groupon.entity.PriceInfo;
+
+import java.util.List;
+
+/**
+ * 成员拼团产品信息 VO 实体
+ *
+ * @author lzg
+ * @Date 2017年10月5日
+ * @email linzhongguang@gaiay.cn
+ */
+public class MemberProductVO {
+
+    String grouponId;           //拼团Id
+    String productId;           //产品Id
+
+    public String getGrouponId() {
+        return grouponId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setGrouponId(String grouponId) {
+        this.grouponId = grouponId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 }
 ```
