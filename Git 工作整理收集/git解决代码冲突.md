@@ -1,5 +1,5 @@
 git 解决代码冲突
-================
+==============
 
 冲突解决方法（一）
 -----------------
@@ -23,6 +23,10 @@ git stash pop stash@{0}
 ```text
 Auto-merging c/environ.c
 CONFLICT (content): Merge conflict in c/environ.c
+```
+>确认代码自动合并情况
+```git
+git diff -w filename
 ```
 >手动解决冲突```-_-```
 
