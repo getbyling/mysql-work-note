@@ -78,7 +78,7 @@ public class GrouponMemberServiceImpl {
     public static void main(String[] args) {
 
         MemberProductVO memberProduct = new MemberProductVO();
-        memberProduct.setProductPic("a");
+        memberProduct.setGrouponId("a");
         try {
             MemberProductVO temp = (MemberProductVO) BeanUtils.cloneBean(memberProduct);
         } catch (IllegalAccessException e) {
@@ -97,10 +97,6 @@ public class GrouponMemberServiceImpl {
 >MemberProductVO 实体
 ```java
 package cn.gaiay.business.groupon.entity.member;
-
-import cn.gaiay.business.groupon.entity.PriceInfo;
-
-import java.util.List;
 
 /**
  * 成员拼团产品信息 VO 实体
