@@ -1,6 +1,15 @@
 Redis 安装使用
 ==============
 
+准备工作
+--------
+>通过以下方法输入当前管理员用户的密码就可以进到root用户
+```text
+sudo -i
+```
+
+执行工作
+--------
 >1.Ubuntu 切换到下载目录，并下载 Redis 压缩包，下载 stable 版本
 ```text
 cd /vagrant/environment/
@@ -89,6 +98,10 @@ sudo apt install yum
 ```text
 sudo apt install yum
 yum install tcl
+```
+>Ubuntu 的安装为指令：
+```text
+sudo apt-get install tcl
 ```
 
 

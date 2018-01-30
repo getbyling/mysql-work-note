@@ -189,3 +189,145 @@ l@l-PC MINGW64 /d/GaiayCode/origincode/extends (hotfix/sp32.1.7)
 $ git pull
 Already up-to-date.
 ```
+
+>示例操作 3：(有待优化)
+```git
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git add .
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git diff
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git commit -m 'test'
+[feature/zmaccount2.0 31f7024] test
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git commit
+On branch feature/zmaccount2.0
+Your branch is ahead of 'origin/feature/zmaccount2.0' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git push
+To 192.168.0.236:zm/zmaccount.git
+ ! [rejected]        feature/zmaccount2.0 -> feature/zmaccount2.0 (fetch first)
+error: failed to push some refs to 'git@192.168.0.236:zm/zmaccount.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git pull
+remote: Counting objects: 21, done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 21 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (21/21), done.
+From 192.168.0.236:zm/zmaccount
+   650c1f1..e3466f9  feature/zmaccount2.0 -> origin/feature/zmaccount2.0
+   43dc003..e3466f9  develop              -> origin/develop
+Merge made by the 'recursive' strategy.
+ .../zm/common/constants/ReturnCodeEnum.java         | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git push
+Counting objects: 31, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (31/31), 2.13 KiB | 0 bytes/s, done.
+Total 31 (delta 10), reused 0 (delta 0)
+remote:
+remote: To create a merge request for feature/zmaccount2.0, visit:
+remote:   http://192.168.0.236/zm/zmaccount/merge_requests/new?merge_request%5Bsource_branch%5D=feature%2Fzmaccount2.0
+remote:
+To 192.168.0.236:zm/zmaccount.git
+   e3466f9..ac624ed  feature/zmaccount2.0 -> feature/zmaccount2.0
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git pull
+Already up-to-date.
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git branch
+  develop
+* feature/zmaccount2.0
+  master
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git diff
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
+$ git checkout develop
+Your branch is behind 'origin/develop' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Switched to branch 'develop'
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git merge feature/zmaccount2.0
+Updating 43dc003..ac624ed
+Fast-forward
+ .../accountting/web/ZmAccountInfoAction.java        |  2 +-
+ .../zm/common/constants/ReturnCodeEnum.java         | 21 ++++++++++++++++++++-
+ 2 files changed, 21 insertions(+), 2 deletions(-)
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git pull
+remote: Counting objects: 92, done.
+remote: Compressing objects: 100% (66/66), done.
+remote: Total 92 (delta 20), reused 33 (delta 6)
+Unpacking objects: 100% (92/92), done.
+From 192.168.0.236:zm/zmaccount
+   e3466f9..66b5aa4  develop       -> origin/develop
+   99de7ce..91e7e4f  feature/agent -> origin/feature/agent
+Auto-merging src/main/java/cn/gaiay/business/zm/account/accountting/web/ZmAccountInfoAction.java
+Merge made by the 'recursive' strategy.
+ .../accountting/web/ZmAccountInfoAction.java       |  2 +-
+ .../zm/agent/billing/biz/AsynRoutingThread.java    | 98 +++++++++++++++++++++-
+ .../agent/billing/biz/impl/RoutingServiceImpl.java | 17 +++-
+ .../zm/agent/billing/web/RoutingAction.java        | 13 ++-
+ .../agent/order/biz/AccountPageSettingService.java |  3 +-
+ .../biz/impl/AccountPageSettingServiceImpl.java    | 10 ++-
+ .../zm/agent/order/model/ZmAccountFollowerRel.java |  5 ++
+ .../agent/order/web/AccountPageSettingAction.java  | 10 ++-
+ 8 files changed, 142 insertions(+), 16 deletions(-)
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git add .
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git commit -m 'merge feature/zmaccount2.0'
+On branch develop
+Your branch is ahead of 'origin/develop' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git commit
+On branch develop
+Your branch is ahead of 'origin/develop' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git push
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (13/13), 941 bytes | 0 bytes/s, done.
+Total 13 (delta 6), reused 0 (delta 0)
+remote:
+remote: To create a merge request for develop, visit:
+remote:   http://192.168.0.236/zm/zmaccount/merge_requests/new?merge_request%5Bsource_branch%5D=develop
+remote:
+To 192.168.0.236:zm/zmaccount.git
+   66b5aa4..96cffbd  develop -> develop
+
+l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
+$ git pull
+Already up-to-date.
+```
