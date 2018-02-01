@@ -67,7 +67,7 @@ make
 Hint: It's a good idea to run 'make test' ;)
 ```
 
->6.>执行**make test**
+>6.执行**make test**
 ```text
 make test
 ```
@@ -99,7 +99,7 @@ sudo apt install yum
 sudo apt install yum
 yum install tcl
 ```
->Ubuntu 的安装为指令：
+>Ubuntu 的安装指令为：
 ```text
 sudo apt-get install tcl
 ```
