@@ -55,68 +55,34 @@ git push
 ```git
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
 $ git pull
-remote: Counting objects: 73, done.
-remote: Compressing objects: 100% (55/55), done.
-remote: Total 73 (delta 8), reused 45 (delta 2)
-Unpacking objects: 100% (73/73), done.
-From 192.168.0.236:zm/zmaccount
- 0d0dfb3a..0757d619  develop       -> origin/develop
- 7f24245f..6aaef8b5  feature/agent -> origin/feature/agent
- f80c0643..f446d3af  feature/live  -> origin/feature/live
 Already up-to-date.
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
-$ git push
-Everything up-to-date
-
-l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (feature/zmaccount2.0)
 $ git checkout develop
-Your branch is behind 'origin/develop' by 41 commits, and can be fast-forwarded.
-(use "git pull" to update your local branch)
+Your branch is up-to-date with 'origin/develop'.
 Switched to branch 'develop'
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git pull
-Updating 8e97dae4..0757d619
-Fast-forward
-.../biz/ZmAccountInfoManageService.java            |   3 +-
-.../biz/impl/ZmAccountInfoManageServiceImpl.java   |   3 +-
-.../accountting/web/ZmAccountInfoManageAction.java |   6 +-
-.../common/constants/ZmMemberResourceCodeEnum.java | 139 +++++++----
-4 files changed, 9 insertions(+), 7 deletions(-)
-
-l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
-$ git diff
-
-l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
-$ git add .
+Already up-to-date.
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git merge feature/zmaccount2.0
 Merge made by the 'recursive' strategy.
-.../biz/ZmAccountInfoManageService.java            |  14 +-
-.../biz/impl/ZmAccountInfoManageServiceImpl.java   |  79 ++++++++++-
-.../accountting/dao/ZmAccountInfoMapper.java       | 158 +++++++++++----------
-.../accountting/vo/ZmAccountManageListVo.java      | 118 +++++++++++++++
-.../accountting/web/ZmAccountInfoManageAction.java |  14 +-
-.../oauth/biz/impl/ZmAccountAuthServiceImpl.java   |   2 +-
-.../account/accountting/ZmAccountInfoMapper.xml    |  40 ++++++
-.../account/oauth/ZmAccountCertificateMapper.xml   |   2 +-
-8 files changed, 329 insertions(+), 98 deletions(-)
-create mode 100644 src/main/java/cn/gaiay/business/zm/account/accountting/vo/ZmAccountManageListVo.java
+ .../biz/impl/ZmAccountInfoManageServiceImpl.java   |  16 +-
+ .../accountting/web/ZmAccountInfoManageAction.java |  18 +--
+ .../oauth/biz/impl/ZmAccountAuthServiceImpl.java   |  18 +--
+ .../zm/account/oauth/web/ZmAccountAuthAction.java  |  95 ++----------
+ .../business/zm/common/utils/ResultModelUtil.java  |  32 ----
+ .../live/category/web/LivePlateformTypeAction.java | 135 ++--------------
+ .../zm/live/category/web/LiveTypeAction.java       | 172 +++++----------------
+ src/test/java/cn/gaiay/util/DateTimeTest.java      |  27 ++++
+ 8 files changed, 106 insertions(+), 407 deletions(-)
+ create mode 100644 src/test/java/cn/gaiay/util/DateTimeTest.java
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git pull
-remote: Counting objects: 30, done.
-remote: Compressing objects: 100% (22/22), done.
-remote: Total 30 (delta 8), reused 0 (delta 0)
-Unpacking objects: 100% (30/30), done.
-From 192.168.0.236:zm/zmaccount
- 0757d619..4afbeb03  develop       -> origin/develop
- 6aaef8b5..aec7d584  feature/agent -> origin/feature/agent
-Merge made by the 'recursive' strategy.
-.../order/biz/impl/OpenZmAccountServiceImpl.java   | 24 ++++++++++++++++------
-1 file changed, 18 insertions(+), 6 deletions(-)
+Already up-to-date.
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git diff
@@ -127,34 +93,30 @@ $ git add .
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git commit -m 'merge feature/zmaccount2.0 branch'
 On branch develop
-Your branch is ahead of 'origin/develop' by 3 commits.
-(use "git push" to publish your local commits)
+Your branch is ahead of 'origin/develop' by 4 commits.
+  (use "git push" to publish your local commits)
 nothing to commit, working tree clean
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git commit
 On branch develop
-Your branch is ahead of 'origin/develop' by 3 commits.
-(use "git push" to publish your local commits)
+Your branch is ahead of 'origin/develop' by 4 commits.
+  (use "git push" to publish your local commits)
 nothing to commit, working tree clean
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git push
-Counting objects: 18, done.
+Counting objects: 4, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (10/10), done.
-Writing objects: 100% (18/18), 1.32 KiB | 0 bytes/s, done.
-Total 18 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 468 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
 remote:
 remote: To create a merge request for develop, visit:
 remote:   http://192.168.0.236/zm/zmaccount/merge_requests/new?merge_request%5Bsource_branch%5D=develop
 remote:
 To 192.168.0.236:zm/zmaccount.git
- 4afbeb03..21f28507  develop -> develop
-
-l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
-$ git pull
-Already up-to-date.
+   01190164..872a818c  develop -> develop
 
 l@l-PC MINGW64 /d/GaiayCode/origincode/zmaccount (develop)
 $ git checkout feature/zmaccount2.0
