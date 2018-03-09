@@ -27,6 +27,11 @@ alter table 表名称 change 字段名称 字段名称 字段类型 [是否允�
 alter table 表名称 modify 字段名称 字段类型 [是否允许非空] COMMENT '备注内容';
 alter table 表名称 modify 字段名称 字段类型 [是否允许非空] COMMENT '备注内容';
 ```
+##### 示例代码
+```mysql
+ALTER TABLE groupon_order MODIFY follower_id VARCHAR(60) NULL COMMENT '推客编号';
+```
+
 ##### 修改某个表的字段名称及指定为空或非空
 ```mysql
 alter table 表名称 change 字段原名称 字段新名称 字段类型 [是否允许非空  COMMENT '备注内容'
