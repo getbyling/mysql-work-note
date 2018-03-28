@@ -44,3 +44,9 @@ git checkout hotfix/sp32.1.5
 ```git
 git push origin hotfix/sp32.1.5
 ```
+
+>6、将当前本地分支推送到远程
+```git
+git branch --set-upstream-to=origin/hotfix/sp35.0.1
+```
+
